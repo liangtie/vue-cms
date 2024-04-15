@@ -5,7 +5,17 @@ import { generateModifyVars } from './build/generate/generateModifyVars'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue()],
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => {
+            return tag.startsWith('ecad-') // (return true)
+          }
+        }
+      }
+    })
+  ],
   css: {
     preprocessorOptions: {
       // 指定传递给 CSS 预处理器的选项。文件扩展名用作选项的键
@@ -20,6 +30,14 @@ export default defineConfig({
           'app-content-background': '#fafafa' //   Link color
         },
         javascriptEnabled: true
+      }
+    }
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.glsl': 'text',
+        '.kicad_wks': 'text'
       }
     }
   }
