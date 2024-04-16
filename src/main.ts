@@ -1,9 +1,6 @@
 import { createApp } from 'vue'
-import { ECadViewer } from 'ecad-viewer'
 import Antd from 'ant-design-vue'
 import App from './App.vue'
-import { html } from 'ecad-viewer/lib/base/web-components'
-import { EcadSourceElement } from 'ecad-viewer/lib/ecad-viewer/ecad_viewer'
 /**
  * 引入less后缀的样式文件，方便后续更改主题颜色
  * 如果你要引入使用less文件的话，按照antd-vue的文档
@@ -19,9 +16,3 @@ import('ant-design-vue/dist/antd.less')
 const app = createApp(App)
 app.use(Antd)
 app.mount('#app')
-
-// find element by id 'app'
-const bb = new EcadSourceElement()
-bb.src = 'http://192.168.50.2:8000/video.kicad_pcb'
-const viewer = new ECadViewer([bb])
-document.getElementById('cc')?.appendChild(viewer)

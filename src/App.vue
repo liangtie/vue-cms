@@ -1,12 +1,10 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-</script>
+
+<script src="http://192.168.50.2:8000/ecad-viewer.js"></script>
 
 <template>
-  <ConfigProvider>
-    <div id="cc"></div>
-  </ConfigProvider>
+  <div id="cc"></div>
+  <kc-board-app></kc-board-app>
+  <kc-schematic-app></kc-schematic-app>
 </template>
 
 <style>

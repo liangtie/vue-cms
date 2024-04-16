@@ -10,7 +10,7 @@ export default defineConfig({
       template: {
         compilerOptions: {
           isCustomElement: (tag) => {
-            return tag.startsWith('ecad-') // (return true)
+            return tag.startsWith('ecad-') || tag.startsWith('kc-') // (return true)
           }
         }
       }
