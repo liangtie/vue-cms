@@ -16,6 +16,18 @@
       http://localhost:8099/video/pal-ntsc.kicad_sch;
       http://localhost:8099/video/rams.kicad_sch">
     </ecad-viewer-embedded>
+    <ecad-viewer>
+      <ecad-source src="http://localhost:8099/video/video.kicad_pcb"></ecad-source>
+      <ecad-source src="http://localhost:8099/video/bus_pci.kicad_sch"></ecad-source>
+      <ecad-source src="http://localhost:8099/video/esvideo.kicad_sch"></ecad-source>
+      <ecad-source src="http://localhost:8099/video/graphic.kicad_sch"></ecad-source>
+      <ecad-source src="http://localhost:8099/video/modul.kicad_sch"></ecad-source>
+      <ecad-source src="http://localhost:8099/video/muxdata.kicad_sch"></ecad-source>
+      <ecad-source src="http://localhost:8099/video/pal-ntsc.kicad_sch"></ecad-source>
+      <ecad-source src="http://localhost:8099/video/rams.kicad_sch"></ecad-source>
+      <ecad-source src="http://localhost:8099/video/video.kicad_sch"></ecad-source>
+      <ecad-3d-source src="http://localhost:8099/video/video.glb.meshopt.glb"></ecad-3d-source>
+    </ecad-viewer>
   </div>
 
 </template>
