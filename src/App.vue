@@ -25,7 +25,7 @@
       http://localhost:8010/video/pal-ntsc.kicad_sch;
       http://localhost:8010/video/rams.kicad_sch">
     </ecad-viewer-embedded>
-    <!-- <ecad-viewer>
+      <ecad-viewer>
       <ecad-source src="http://localhost:8010/video/video.kicad_pcb"></ecad-source>
       <ecad-source src="http://localhost:8010/video/bus_pci.kicad_sch"></ecad-source>
       <ecad-source src="http://localhost:8010/video/esvideo.kicad_sch"></ecad-source>
@@ -36,7 +36,7 @@
       <ecad-source src="http://localhost:8010/video/rams.kicad_sch"></ecad-source>
       <ecad-source src="http://localhost:8010/video/video.kicad_sch"></ecad-source>
       <ecad-3d-source src="http://localhost:8010/video/video.glb.meshopt.glb"></ecad-3d-source>
-    </ecad-viewer> -->
+    </ecad-viewer>
   </div>
 
 </template>
@@ -47,6 +47,8 @@ ecad-viewer ,
 ecad-viewer-embedded {
   width: 100%;
   height: 800px;
+  border : 1px solid cyan;
+  margin : 5px;
 }
                         .flex-container {
                           display: flex;
@@ -55,7 +57,7 @@ ecad-viewer-embedded {
                           margin-right: 10%;
                                                     flex-direction: column;
                         }
-            
+
                         .col-flex-container {
                           display: flex;
                           flex-direction: column;
