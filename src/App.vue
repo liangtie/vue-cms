@@ -1,37 +1,14 @@
 
-<script src="http://localhost:8010/ecad-viewer.js"></script>
-
 <template>
-  <div class="flex-container">
-    <ecad-viewer-embedded url="http://localhost:8010/video/video.kicad_pcb">
-    </ecad-viewer-embedded>
-    <ecad-viewer-embedded url="http://localhost:8010/video/video.glb.meshopt.glb">
-    </ecad-viewer-embedded>
-    <ecad-viewer-embedded url="http://localhost:8010/video/video.kicad_sch;
-      http://localhost:8010/video/bus_pci.kicad_sch;
-      http://localhost:8010/video/esvideo.kicad_sch;
-      http://localhost:8010/video/graphic.kicad_sch;
-      http://localhost:8010/video/modul.kicad_sch;
-      http://localhost:8010/video/muxdata.kicad_sch;
-      http://localhost:8010/video/pal-ntsc.kicad_sch;
-      http://localhost:8010/video/rams.kicad_sch">
-    </ecad-viewer-embedded>
-    <ecad-viewer-embedded is_bom="true" url="http://localhost:8010/video/video.kicad_sch;
-      http://localhost:8010/video/bus_pci.kicad_sch;
-      http://localhost:8010/video/esvideo.kicad_sch;
-      http://localhost:8010/video/graphic.kicad_sch;
-      http://localhost:8010/video/modul.kicad_sch;
-      http://localhost:8010/video/muxdata.kicad_sch;
-      http://localhost:8010/video/pal-ntsc.kicad_sch;
-      http://localhost:8010/video/rams.kicad_sch">
-    </ecad-viewer-embedded>
+  <div class="flex-container" id="viewer-container">
+    <input type="file" id="fileInput" name="fileInput" multiple>
   </div>
 
 </template>
 
 <style>
 
-ecad-viewer ,
+ecad-standalone-bom,
 ecad-viewer-embedded {
   width: 100%;
   height: 800px;
