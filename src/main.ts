@@ -13,7 +13,12 @@ import App from './App.vue'
  */
 import('ant-design-vue/dist/antd.less')
 import('http://localhost:8010/ecad-viewer.js')
-import { html } from 'http://localhost:8010/ecad-viewer.js'
+import {
+  html,
+  find_root_sch_from_content,
+  is_sch,
+  is_pcb
+} from 'http://localhost:8010/ecad-viewer.js'
 
 const app = createApp(App)
 app.use(Antd)
@@ -54,25 +59,32 @@ if (btn)
           const ecad_view = html`<ecad-viewer-embedded> </ecad-viewer-embedded>`
           const bom_view = html`<ecad-standalone-bom> </ecad-standalone-bom>`
 
-          const blob_map = {}
+          const sch_content_map = {}
           ;(results as [{ name: string; content: string }]).forEach(
             ({ name, content }) => {
-              if (name.endsWith('.kicad_pcb') || name.endsWith('.kicad_sch'))
+              if (is_sch(name) || is_pcb(name)) {
                 ecad_view.appendChild(
                   html`<ecad-blob
                     filename="${name}"
                     content="${content}"
                   ></ecad-blob>`
                 )
-              bom_view.appendChild(
-                html`<ecad-blob
-                  filename="${name}"
-                  content="${content}"
-                ></ecad-blob>`
-              )
+                bom_view.appendChild(
+                  html`<ecad-blob
+                    filename="${name}"
+                    content="${content}"
+                  ></ecad-blob>`
+                )
+
+                if (is_sch(name)) {
+                  sch_content_map[name] = content
+                }
+              }
             }
           )
-
+          // Find the root sch
+          const root_sch = find_root_sch_from_content(sch_content_map)
+          console.log(`The root sch is ${root_sch}`)
           view_container.appendChild(ecad_view)
           view_container.appendChild(bom_view)
         })
